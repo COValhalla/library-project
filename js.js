@@ -27,6 +27,7 @@ function Book (title, author, pages, readStatus){
     this.pages = pages
     this.readStatus = readStatus
 }
+
 // This is the best way to create methods for constructors
 Book.prototype.sayTitle = function() {
     console.log(this.title)
