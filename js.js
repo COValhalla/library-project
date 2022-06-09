@@ -46,6 +46,9 @@ class Book {
         newCard.append(newTitle, newAuthor, newPages, newStatus, newButton, statusButton);
         document.getElementsByClassName("content")[0].appendChild(newCard);
     }
+    toggleStatus(){
+
+    }
 
 }
 
@@ -90,7 +93,12 @@ function storeBookData() {
     var formTitle = document.getElementById('title').value;
     var formAuthor = document.getElementById('author').value;
     var formPages = document.getElementById('pages').value;
-    var formStatus = document.getElementById('status').value;
+    var formStatus = document.getElementById('status').checked;
+    if (formStatus == true) {
+        formStatus = 'Read';
+    } else {
+        formStatus = 'Unread';
+    }
     newBook = new Book(formTitle, formAuthor, formPages, formStatus).addBookToLibrary().createLibraryCard();
     hiddenForm.style.visibility = "hidden";
 }
