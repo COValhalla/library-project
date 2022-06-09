@@ -43,13 +43,22 @@ class Book {
         statusButton.classList.add('button');
         statusButton.textContent = `Status`;
 
+        console.log(newStatus.textContent == "Status: Read");
+
+        statusButton.addEventListener('click', function(){
+            if (newStatus.textContent == 'Status: Read'){
+                newStatus.textContent = 'Status: Unread'
+            } else {
+                newStatus.textContent = 'Status: Read'
+            }
+        });
+
         newCard.append(newTitle, newAuthor, newPages, newStatus, newButton, statusButton);
         document.getElementsByClassName("content")[0].appendChild(newCard);
     }
     toggleStatus(){
 
     }
-
 }
 
 // Two example books to fill out page initially
@@ -57,14 +66,14 @@ const exampleBook1 = {
     title: "The Hobbit",
     author: "J.R.R Tolkien",
     pages: "305",
-    readStatus: "read",
+    readStatus: "Read",
     index: '1'
 }
 const exampleBook2 = {
     title: "Dune",
     author: "Frank Herbert",
     pages: "521",
-    readStatus: "read",
+    readStatus: "Unread",
     index: '2'
 }
 
