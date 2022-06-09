@@ -1,28 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="js.js"></script>
+    <script src="js.js" defer></script>
 </head>
+
 <body>
     <div class="header"></div>
     <div class="sidebar">
-        <button class ="button">New Book</button>
+        <button class="button" id="newBookButton">New Book</button>
+
+        <form method="diaglog">
+            <label for="title">Enter Title:</label>
+            <input type="text" name="title" id="title">
+        
+            <label for="author">Enter Author:</label>
+            <input type="text" name="author" id="author">
+
+            <label for="pages">Enter total pages:</label>
+            <input type="text" name="pages" id="pages">
+
+            <label for="status">Enter read status:</label>
+            <input type="text" name="status" id="status">
+        </form>
+        <button id="submit-button">Submit</button>
+        <button id="close-button">Close</button>
     </div>
-    <div class="content">
-        <!-- <div class="content__card">
+    <div class="content"></div>
+
+
+            
+
+
+</body>
+
+</html>
+
+
+<!-- If content is empty, add eventListener to unhide to tell user to add books -->
+
+<!-- <div class="content__card">
             <div class="content__title">Title: <span class="title"></span> </div>
             <div class="content__author">Author: <span class="author"></span> </div>
             <div class="div content__pages">Pages: <span class="pages"></span></div>
             <div class="content__status">Status: <span class="status"></span> </div>
         </div> -->
-
-
-    </div>
-    
-</body>
-</html>

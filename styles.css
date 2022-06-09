@@ -48,3 +48,9 @@ body {
     height: 2rem;
     width: 6rem;
 }
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 1rem;
+}
