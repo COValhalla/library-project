@@ -48,6 +48,12 @@ body {
     height: 2rem;
     width: 6rem;
 }
+
+#dialog-box{
+    visibility: hidden;
+}
+
+
 form {
     display: flex;
     flex-direction: column;

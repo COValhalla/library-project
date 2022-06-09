@@ -82,14 +82,21 @@ class Book {
     }
 }
 
+//On new book click, unhide form
+var hiddenForm = document.getElementById('dialog-box')
+var newBookButton = document.getElementById('newBookButton');
+newBookButton.addEventListener('click', showForm);
+
+function showForm(){
+    hiddenForm.style.visibility = "visible";
+    console.log('form hidden!');
+    console.log('button clicked');
+}
 
 
-
+// On submit click, contruct newBook object and add to library array and createLibraryCard
 var subButton = document.getElementById('submit-button');
 subButton.addEventListener('click', storeBookData);
-
-// });
-// On SubmitEvent, store each of the text fields in a variable
 
 function storeBookData() {
     var formTitle = document.getElementById('title').value;
@@ -98,6 +105,7 @@ function storeBookData() {
     var formStatus = document.getElementById('status').value;
     console.log('button click')
     newBook = new Book(formTitle, formAuthor, formPages, formStatus).addBookToLibrary().createLibraryCard();
+    hiddenForm.style.visibility = "hidden";
 }
 
 
