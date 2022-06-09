@@ -2,13 +2,15 @@ const exampleBook1 = {
     title: "The Hobbit",
     author: "J.R.R Tolkien",
     pages: "305",
-    readStatus: "read"
+    readStatus: "read",
+    index: '1'
 }
 const exampleBook2 = {
     title: "Dune",
     author: "Frank Herbert",
     pages: "521",
-    readStatus: "read"
+    readStatus: "read",
+    index: '2'
 }
 
 let myLibrary = [exampleBook1, exampleBook2]
@@ -20,8 +22,8 @@ myLibrary.forEach((book) => {
 
 // Creates a card for the book.
 function createLibraryCard(book) {
-    const newCard = document.createElement("div");
-    newCard.classList.add("content__card");
+    const newCard = document.createElement(`div`);
+    newCard.classList.add(`content__card`, book.index);
 
     const newTitle = document.createElement("div");
     newTitle.classList.add("content__title");
@@ -39,9 +41,17 @@ function createLibraryCard(book) {
     newStatus.classList.add("content__status");
     newStatus.textContent = `Status: ${book.readStatus}`
 
-    newCard.append(newTitle, newAuthor, newPages, newStatus);
+    const newButton = document.createElement(`button`);
+    newButton.textContent = `Delete`;
+    
+    newButton.addEventListener('click', function(){
+        newCard.remove();
+    });
+
+    newCard.append(newTitle, newAuthor, newPages, newStatus, newButton);
     document.getElementsByClassName("content")[0].appendChild(newCard);
 }
+
 
 // Loop through array of book objects
 // For each book object, createLibrary card, add text details
@@ -52,14 +62,15 @@ class Book {
         this.author = author;
         this.pages = pages;
         this.readStatus = readStatus;
+        this.index = myLibrary.length + 1;
     }
     addBookToLibrary() {
         myLibrary.push(this)
         return this;
     }
     createLibraryCard(){
-        const newCard = document.createElement("div");
-        newCard.classList.add("content__card");
+        const newCard = document.createElement(`div`);
+        newCard.classList.add("content__card", this.index);
     
         const newTitle = document.createElement("div");
         newTitle.classList.add("content__title");
@@ -76,10 +87,18 @@ class Book {
         const newStatus = document.createElement("div");
         newStatus.classList.add("content__status");
         newStatus.textContent = `Status: ${this.readStatus}`
-    
-        newCard.append(newTitle, newAuthor, newPages, newStatus);
+
+        const newButton = document.createElement(`button`);
+        newButton.textContent = `Delete`;
+
+        newButton.addEventListener('click', function(){
+            newCard.remove();
+        });
+
+        newCard.append(newTitle, newAuthor, newPages, newStatus, newButton);
         document.getElementsByClassName("content")[0].appendChild(newCard);
     }
+
 }
 
 //On new book click, unhide form
